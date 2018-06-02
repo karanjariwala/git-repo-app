@@ -22,22 +22,4 @@ export const Actions = {
  fetchRepositoriesFailure: (error) => ({ type: ActionTypes.FETCH_REPOSITORIES_FAILURE, error })
 };
 
-/* 
-* Actioncreators
-*/
 
-export const ActionCreators = {
- fetchRepositories: () => (dispatch, getState) => {
-   dispatch(Actions.fetchRepositories());
-   const { repository } = getState();
-   const params={
-    q:repository.searchValue,
-    in:'name',
-    sort:'stars',
-    order:'desc'
-   }
-   getRepositories(params)
-     .then(data => dispatch(Actions.fetchRepositoriesSucess(data)))
-     .catch(error => dispatch(Actions.fetchRepositoriesFailure(error)));
- },
-};

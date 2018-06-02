@@ -3,7 +3,7 @@ import {connect } from 'react-redux';
 import styled from 'styled-components';
 import Input from '../../Common/Components/Input'
 import Button from '../../Common/Components/Button'
-import {ActionCreators, Actions} from '../Actions'
+import { Actions } from '../Actions'
 
 
 const SearchContainer=styled.div`
@@ -31,7 +31,7 @@ const Search = ({ searchValue, handleChange, onButtonClick }) => (
 
  const mapDisptachToProps=dispatch=>({
      handleChange:(e)=>dispatch(Actions.onInputChange(e.target.value)),
-     onButtonClick: () => dispatch(ActionCreators.fetchRepositories())
+     onButtonClick: () => dispatch(Actions.fetchRepositories())
  })
 
 export default connect(mapStateToProps, mapDisptachToProps)(Search);
