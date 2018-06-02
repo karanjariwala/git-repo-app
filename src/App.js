@@ -1,18 +1,12 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom'
-
-const Home=()=><div> home</div>
+import RepoSearchPage from './RepoSearchPage/Main';
 const About =()=><div>About</div>
 
 const App = () => (
   <div>
-    <header>
-      <Link to="/">Home</Link>
-      <Link to="/about-us">About</Link>
-    </header>
-
     <main>
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={RepoSearchPage} />
       <Route exact path="/about-us" component={About} />
     </main>
   </div>
