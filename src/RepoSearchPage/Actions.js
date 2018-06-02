@@ -16,10 +16,10 @@ export const ActionTypes = {
 * Actions
 */
 export const Actions = {
- onInputChange: (value) => ({type: ActionTypes.INPUT_CHANGE, value }),
- fetchRepositories: () => ({ type:ActionTypes.FETCH_REPOSITORIES }),
- fetchRepositoriesSucess: (data) => ({ type: ActionTypes.FETCH_REPOSITORIES_SUCCESS, data }),
- fetchRepositoriesFailure: (error) => ({ type: ActionTypes.FETCH_REPOSITORIES_FAILURE, error })
+    onInputChange: (value) => ({type: ActionTypes.INPUT_CHANGE, value }),
+    fetchRepositories: () => ({ type:ActionTypes.FETCH_REPOSITORIES }),
+    fetchRepositoriesSucess: (data) => ({ type: ActionTypes.FETCH_REPOSITORIES_SUCCESS, data }),
+    fetchRepositoriesFailure: (error) => ({ type: ActionTypes.FETCH_REPOSITORIES_FAILURE, error })
 };
 
 
