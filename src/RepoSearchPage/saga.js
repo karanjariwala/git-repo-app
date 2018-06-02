@@ -1,6 +1,7 @@
 import { call, put, takeEvery, takeLatest, select } from 'redux-saga/effects'
 import * as Api from './service';
 import { ActionTypes, Actions } from './Actions'; 
+import { normalizedData } from '../Common/utils/normalize'
 
 // worker Saga: will be fired on FETCH_REPOSITORIES actions
 function* fetchRepositories(action) {
@@ -13,7 +14,8 @@ function* fetchRepositories(action) {
         order:'desc'
     }
       const { data } = yield call(Api.getRepositories, params );
-      yield put(Actions.fetchRepositoriesSucess(data));
+      const { entities, result } = normalizedData(data.items.slice(0,6));
+      yield put(Actions.fetchRepositoriesSucess({ entities: entities.repositories , result }));
    } catch (error) {
       yield put(Actions.fetchRepositoriesFailure(error));
    }
