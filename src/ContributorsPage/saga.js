@@ -19,7 +19,7 @@ function* fetchContributors(action) {
 
 /*
   takeLatest.
-  Does not allow concurrent fetches of user. If "FETCH_REPOSITORIES" gets
+  Does not allow concurrent fetches. If "FETCH_REPOSITORIES" gets
   dispatched while a fetch is already pending, that pending fetch is cancelled
   and only the latest one will be run.
 */
