@@ -19,7 +19,7 @@ const ContributorList =({ orderArray, contributors, showLength, showMore })=>{
     let Cards = [];
     if(orderArray && orderArray.length){
          Cards = orderArray.slice(0,showLength).map(id=>{
-                return (<Card id={id} width={'400px'}>
+                return (<Card id={id} width={'400px'} margin={'10px'}>
                             <Card.Content contributor={contributors[id]}>
                                 {(props) => <CustomCardRenderer {...props} />}
                             </Card.Content>
@@ -35,8 +35,6 @@ const ContributorList =({ orderArray, contributors, showLength, showMore })=>{
     }
 
     return <Container>{[...Cards]}</Container>
-        
-
 }
 
 
