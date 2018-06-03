@@ -5,8 +5,8 @@ import ContributorsPage from './ContributorsPage/Main'
 const App = () => (
   <div>
     <main>
-      <Route exact path="/" component={RepoSearchPage} />
-      <Route exact path="/:accountName/:repositoryName/contributors" component={ContributorsPage} />
+      <Route exact path={process.env.PUBLIC_URL+"/"} component={RepoSearchPage} />
+      <Route exact path={process.env.PUBLIC_URL+"/:accountName/:repositoryName/contributors"} component={ContributorsPage} />
     </main>
   </div>
 )
