@@ -2,7 +2,7 @@
   "name": "git-repo-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://karanjariwala.github.io/github-repo-search-app",
+  "homepage": "https://karanjariwala.github.io/git-repo-app",
   "dependencies": {
     "axios": "^0.18.0",
     "history": "^4.7.2",
