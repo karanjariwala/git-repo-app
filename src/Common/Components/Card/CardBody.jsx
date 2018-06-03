@@ -3,13 +3,14 @@ import styled from 'styled-components';
 
 const StyledBody= styled.div`
 width:100%;
-align-self:flex-end;
+align-self:flex-start;
 `;
 
 const Content= styled.div`
 padding:5%;
 display: flex;
 flex-wrap: wrap;
+min-height:150px;
 flex-direction: row-reverse;
 `
 

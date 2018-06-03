@@ -15,11 +15,11 @@ border-radius:50%;
 
 const CustomCardRenderer = (props) => {
     const { contributor, showMore }= props;
-    const { avatar_url, login, contributions } = contributor;
+    const { avatar_url, login, contributions, html_url } = contributor;
 
     return <CustomCardWrapper>
                 <Image height="42" width="42" src={avatar_url} />
-                <Button link align={'center'}> {login} </Button>
+                <Button href={html_url} target='_blank' link align={'center'}> {login} </Button>
                 <div> {contributions} Contributions </div>
             </CustomCardWrapper>
 
