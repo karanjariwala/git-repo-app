@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import {connect } from 'react-redux';
+import { connect } from 'react-redux';
 import Card from '../../Common/Components/Card/index'
-import {  push } from 'react-router-redux'
-
+import Button from '../../Common/Components/Button';
+import { Actions } from '../Actions';
 
 const Container=styled.div`
 height: 80vh;
@@ -12,25 +12,21 @@ display: flex;
 flex-wrap: wrap;
 justify-content:center;
 `
-const Link= styled.div`
-align-self: flex-end;
-text-decoration:underline;
-cursor:pointer;
-`
+
 
 
 
 const CardList = ({ orderArray, repositories, goToContributorsPage }) => (<Container>
      {orderArray ? orderArray.map((id)=>{
-        const {name,full_name, html_url, language, description, stargazers_count, open_issues_count, contributors_url }=repositories[id]
+        const {name,full_name, html_url, language, description, stargazers_count, open_issues_count }=repositories[id]
         return (<Card key={id} >
                     <Card.Header>
                             <div> <a href={html_url} target="_blank" > {name}</a></div>
                             <div>{language}</div>  
                     </Card.Header>
                     <Card.Content>
-                            <div>{description}</div>
-                            <Link> <a onClick={goToContributorsPage(full_name)}> top Contributors</a> </Link>
+                            <div style={{width:'100%'}}>{description}</div>
+                            <Button link onClick={goToContributorsPage(full_name)}> top Contributors </Button>
                     </Card.Content>
                     <Card.Footer>
                             <Card.Footer.Item>Stars: {stargazers_count} </Card.Footer.Item>
@@ -51,7 +47,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-        goToContributorsPage : (fullName)=>e => dispatch(push(`${fullName}/contributors`))
+        goToContributorsPage : (full_name)=>()=> dispatch(Actions.navigateToContributorsPage(full_name))
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(CardList);
+export default connect(mapStateToProps, mapDispatchToProps)(CardList);
