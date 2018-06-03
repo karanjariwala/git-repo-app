@@ -13,10 +13,27 @@ border: 2px solid palevioletred;
 border-radius: 3px;
 `;
 
+const Link= styled.a`
+align-self: ${props=> props.align? props.align :'auto'};
+text-decoration:underline;
+cursor:pointer;
+`
 
-const Button = (props) => (<StyledButton {...props}> 
-{props.children}
-</StyledButton>)
+
+const Button = ({ link, children, ...rest}) => {
+    if(link){
+        return (
+            <Link {...rest}>
+                {children}
+            </Link>
+        )
+    }
+
+    return (
+        <StyledButton {...rest}> 
+            {children}
+        </StyledButton>)
+}
 
 
 
