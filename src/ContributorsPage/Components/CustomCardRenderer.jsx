@@ -11,6 +11,9 @@ align-items: center;
 const Image= styled.img`
 border-radius:50%;
 `
+/*
+ - this is Rendered for the render prop to custom render the content in the card. 
+ */
 
 const CustomCardRenderer = (props) => {
     const { contributor }= props;

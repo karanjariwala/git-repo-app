@@ -16,18 +16,23 @@ flex-direction: row;
 flex-wrap: wrap;
 color: ${props=> props.color ? props.color : 'palevioletred'} ;
 `
+/*
+    -Adding Header, Content , Footer as static Methods on Base class, so that they can be accessed by dot notation like <Card.Header />
+    -So all Card related Components can be imported by importing Card
+    -Made static to avoid multiple instances.
+*/
 
 class Card extends React.Component{
-static Header=CardHeader;
-static Content= CardBody;
-static Footer= CardFooter;
-render(){
-    return (
-        <CardWrapper {...this.props}>
-            {this.props.children}
-        </CardWrapper>   
-        )
-    }
+    static Header=CardHeader;
+    static Content= CardBody;
+    static Footer= CardFooter;
+    render(){
+        return (
+            <CardWrapper {...this.props}>
+                {this.props.children}
+            </CardWrapper>   
+            )
+        }
 }
 
 

@@ -20,6 +20,9 @@ const FooterItem= ({children, countOfFooterItems, ...rest}) => (
     </StyledItem>)
 
 
+// Card Footer is Compund Component which according to number of footer items sets the flex-basis
+// Also children prop can be render prop if custom footer is to be rendered.
+
 class CardFooter extends React.Component {
     static Item = FooterItem;
     render(){

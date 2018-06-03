@@ -14,6 +14,7 @@ justify-content: center;
 align-items: center;
 `
 
+/* Here Card.Content children is used as a render prop. */
 
 const ContributorList =({ orderArray, contributors, showLength, showMore })=>{
     let Cards = [];
@@ -21,7 +22,7 @@ const ContributorList =({ orderArray, contributors, showLength, showMore })=>{
          Cards = orderArray.slice(0,showLength).map(id=>{
                 return (<Card id={id} width={'400px'} margin={'10px'}>
                             <Card.Content contributor={contributors[id]}>
-                                {(props) => <CustomCardRenderer {...props} />}
+                                {(props) => <CustomCardRenderer {...props} />}  
                             </Card.Content>
                         </Card>)
             })
@@ -31,7 +32,7 @@ const ContributorList =({ orderArray, contributors, showLength, showMore })=>{
         }
 
     }else{
-        Cards = [<div> ... </div>]
+        Cards = [<div> ...... </div>]
     }
 
     return <Container>{[...Cards]}</Container>

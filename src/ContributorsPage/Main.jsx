@@ -16,8 +16,6 @@ class ContributorsPage extends React.Component{
 }
 
 
-
-
 const mapDispatchToProps = dispatch => ({
     fetchContributors: (accountName, repositoryName) => dispatch(Actions.fetchContributors(accountName, repositoryName))
 })

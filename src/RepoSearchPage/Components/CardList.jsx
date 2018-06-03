@@ -14,7 +14,11 @@ justify-content:center;
 `
 
 
-
+/*
+- Card is used here is a Compund Component. 
+- These Compound Component can further be modified to encapsulate state inside them.
+- Also children prop of Header, Footer or Body can be render prop to custom render if necessary.
+*/
 
 const CardList = ({ orderArray, repositories, goToContributorsPage }) => (<Container>
      {orderArray ? orderArray.map((id)=>{
@@ -31,7 +35,6 @@ const CardList = ({ orderArray, repositories, goToContributorsPage }) => (<Conta
                     <Card.Footer>
                             <Card.Footer.Item>Stars: {stargazers_count} </Card.Footer.Item>
                             <Card.Footer.Item>Issues: {open_issues_count}</Card.Footer.Item>
-
                     </Card.Footer>
                 </Card>)
         }) : '...search the repository name above and press go'}

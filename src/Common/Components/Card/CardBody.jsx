@@ -14,6 +14,7 @@ min-height:150px;
 flex-direction: row-reverse;
 `
 
+
 const CardBody= (props)=>{
     const {children, ...rest} = props;   
     return <StyledBody> 

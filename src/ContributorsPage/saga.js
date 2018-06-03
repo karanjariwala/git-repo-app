@@ -5,7 +5,6 @@ import * as Api from './service';
 
 // worker Saga: will be fired on FETCH_REPOSITORIES actions
 function* fetchContributors(action) {
-
     const { accountName, repositoryName } = action;
     yield console.log(accountName, repositoryName)
    try {
@@ -18,11 +17,8 @@ function* fetchContributors(action) {
    }
 }
 
-
-
 /*
   takeLatest.
-
   Does not allow concurrent fetches of user. If "FETCH_REPOSITORIES" gets
   dispatched while a fetch is already pending, that pending fetch is cancelled
   and only the latest one will be run.
