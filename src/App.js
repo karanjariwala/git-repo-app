@@ -1,13 +1,12 @@
 import React from 'react';
 import { Route, Link } from 'react-router-dom'
 import RepoSearchPage from './RepoSearchPage/Main';
-const About =()=><div>About</div>
-
+import ContributorsPage from './ContributorsPage/Main'
 const App = () => (
   <div>
     <main>
       <Route exact path="/" component={RepoSearchPage} />
-      <Route exact path="/:accountName/:repositoryName/contributors" component={About} />
+      <Route exact path="/:accountName/:repositoryName/contributors" component={ContributorsPage} />
     </main>
   </div>
 )
