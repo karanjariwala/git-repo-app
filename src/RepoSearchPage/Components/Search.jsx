@@ -5,7 +5,6 @@ import Input from '../../Common/Components/Input'
 import Button from '../../Common/Components/Button'
 import { Actions } from '../Actions'
 
-
 const SearchContainer=styled.div`
 width:100%;
 height:20vh;
@@ -16,14 +15,14 @@ justify-content: center;
 
 
 const Search = ({ searchValue, handleChange, onButtonClick }) => (
-<SearchContainer> 
-     <Input
-        placeholder="search repository name"
-        value={searchValue}
-        onChange={handleChange}
-        />
-    <Button primary onClick={onButtonClick} > go</Button>
- </SearchContainer>)
+            <SearchContainer> 
+                <Input
+                    placeholder="search repository name"
+                    value={searchValue}
+                    onChange={handleChange}
+                    />
+                <Button primary onClick={onButtonClick} > go</Button>
+            </SearchContainer>)
 
  const mapStateToProps=(state)=> ({
      searchValue:state.repository.searchValue,
