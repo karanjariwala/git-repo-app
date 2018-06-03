@@ -1,7 +1,9 @@
 import { call, put, takeEvery, takeLatest, select } from 'redux-saga/effects'
 import * as Api from './service';
 import { ActionTypes, Actions } from './Actions'; 
-import { normalizedData } from '../Common/utils/normalize'
+import { normalizedDataRepositories } from '../Common/utils/normalize'
+import { push } from 'react-router-redux'
+
 
 // worker Saga: will be fired on FETCH_REPOSITORIES actions
 function* fetchRepositories(action) {
@@ -14,13 +16,17 @@ function* fetchRepositories(action) {
         order:'desc'
     }
       const { data } = yield call(Api.getRepositories, params );
-      const { entities, result } = normalizedData(data.items.slice(0,6));
+      const { entities, result } = normalizedDataRepositories(data.items.slice(0,6));
       yield put(Actions.fetchRepositoriesSucess({ entities: entities.repositories , result }));
    } catch (error) {
       yield put(Actions.fetchRepositoriesFailure(error));
    }
 }
 
+function* onNavigate(action){
+  const { full_name } = action;
+  yield put(push(`${full_name}/contributors`))
+}
 
 
 /*
@@ -32,6 +38,7 @@ function* fetchRepositories(action) {
 */
 function* repositorySaga() {
   yield takeLatest( ActionTypes.FETCH_REPOSITORIES, fetchRepositories);
+  yield takeLatest( ActionTypes.NAVIGATE_TO_CONTRIBUTORS_PAGE, onNavigate)
 }
 
 export default repositorySaga;
