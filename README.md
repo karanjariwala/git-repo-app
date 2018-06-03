@@ -4,10 +4,9 @@ github-repo-search-app
 - Hosted on github. Link below
 https://karanjariwala.github.io/git-repo-app/
 
-
-- To run locally 
+To run locally 
 - clone the repository
-- cd github-repo-search-app
+- cd git-repo-app
 - yarn install 
 - yarn start 
 
