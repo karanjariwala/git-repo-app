@@ -15,17 +15,15 @@ const StyledDiv=styled.div`
 margin: 0.5em;
 width:50%;
 `
-
-
+/*
+- Very Basic Input Component. if `label` prop is passed renders label with input or else renders only input.
+*/
 
 const Input = ({label,...rest }) => (
-<StyledDiv> 
-    {label&&<label>{label}</label>}
-     <StyledInput
-     id={label}
-      {...rest}
-        />
- </StyledDiv>)
+        <StyledDiv> 
+            {label && <label>{label}</label>}
+            <StyledInput id={label} {...rest} />
+        </StyledDiv>)
 
 
 export default Input;

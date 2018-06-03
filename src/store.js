@@ -5,7 +5,7 @@ import createHistory from 'history/createBrowserHistory'
 import rootReducer from './rootReducer'
 import  rootSaga  from './rootSaga';
 
-export const history = createHistory()
+export const history = createHistory(); //using browser history.
 const sagaMiddleware = createSagaMiddleware()
 // mount it on the Store
 
@@ -23,8 +23,8 @@ if (process.env.NODE_ENV === 'development') {
     enhancers.push(devToolsExtension())
   }
 }
-
-const composedEnhancers = compose(
+// FP utility to call functions from right to left passing output of each.
+const composedEnhancers = compose(  
   applyMiddleware(...middleware),
   ...enhancers
 )
@@ -34,7 +34,7 @@ const store = createStore(
   initialState,
   composedEnhancers
 )
-
+// running root saga. -> root saga runs all other sagas.
 sagaMiddleware.run(rootSaga);
 
 

@@ -14,6 +14,8 @@ min-height:150px;
 flex-direction: row-reverse;
 `
 
+// Card Body is Compound Component. Can be accessed on `Card` as `Card.Body`
+// `children` prop can be render prop if custom Body is to be rendered.
 
 const CardBody= (props)=>{
     const {children, ...rest} = props;   

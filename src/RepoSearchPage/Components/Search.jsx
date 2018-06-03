@@ -13,6 +13,10 @@ align-items: center;
 justify-content: center;
 `
 
+/*
+- Basic Search Component using Input and a Button. 
+- onClick of Button fetch action is fiered.
+*/
 
 const Search = ({ searchValue, handleChange, onButtonClick }) => (
             <SearchContainer> 

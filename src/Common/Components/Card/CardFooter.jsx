@@ -22,6 +22,7 @@ const FooterItem= ({children, countOfFooterItems, ...rest}) => (
 
 // Card Footer is Compund Component which according to number of footer items sets the flex-basis
 // Also children prop can be render prop if custom footer is to be rendered.
+// `React.cloneElement` is used to pass `countOfFooterItems` down to each children `FooterItem`.
 
 class CardFooter extends React.Component {
     static Item = FooterItem;

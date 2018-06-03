@@ -15,9 +15,9 @@ function* fetchRepositories(action) {
         sort:'stars',
         order:'desc'
     }
-      const { data } = yield call(Api.getRepositories, params );
-      const { entities, result } = normalizedDataRepositories(data.items.slice(0,6));
-      yield put(Actions.fetchRepositoriesSucess({ entities: entities.repositories , result }));
+      const { data } = yield call(Api.getRepositories, params );  //api call 
+      const { entities, result } = normalizedDataRepositories(data.items.slice(0,6)); // triming and normalizing data
+      yield put(Actions.fetchRepositoriesSucess({ entities: entities.repositories , result })); // action dispatch to save
    } catch (error) {
       yield put(Actions.fetchRepositoriesFailure(error));
    }
@@ -25,7 +25,7 @@ function* fetchRepositories(action) {
 
 function* onNavigate(action){
   const { full_name } = action;
-  yield put(push(`${full_name}/contributors`))
+  yield put(push(`${full_name}/contributors`)) // router-redux action to navigate 
 }
 
 

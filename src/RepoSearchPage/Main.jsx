@@ -10,6 +10,7 @@ display:flex;
 justify-content:center;
 flex-flow: wrap;
 `
+// RepoSearchPage is container component containing `Search` and `CardList` Components.
 
 const RepoSearchPage=()=>(
     <Container>

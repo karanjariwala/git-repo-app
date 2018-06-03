@@ -16,12 +16,14 @@ a {
 }
 padding:5%;
 `
+// Card Header is Compund Component. Can be accessed on `Card` as `Card.Header`
+// `children` prop can be render prop if custom header is to be rendered.
 
 const CardHeader= (props)=>{
     const {children, ...rest} = props;    
     return (<StyledHeader>  
-    {typeof children === 'function'?  children(rest): <Header {...rest}>{children}</Header>}
-    </StyledHeader>)
+                {typeof children === 'function'?  children(rest): <Header {...rest}>{children}</Header>}
+            </StyledHeader>)
 }
 
 

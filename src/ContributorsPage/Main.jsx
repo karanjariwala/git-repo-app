@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import { Actions } from './Actions';
 import ContributorsList from './Components/ContributorList';
 
-
+/* 
+    -ContributorsPage on did mount fetches the contributors.
+    -ContributorsList gets rendered accordingly
+   
+*/
 class ContributorsPage extends React.Component{
     componentDidMount(){
         const { match, fetchContributors} = this.props;

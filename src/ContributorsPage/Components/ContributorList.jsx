@@ -6,6 +6,12 @@ import styled from 'styled-components';
 import { Actions } from '../Actions';
 import CustomCardRenderer from './CustomCardRenderer';
 
+/* 
+    -ContributorList Renders Cards for Contributors
+    -Here `Card.Content` `children` is used as a `render prop`.
+    -`Show More` button is added for pagination. On Click dispatches showMore action.
+*/
+
 
 const Container = styled.div`
 display: flex;
@@ -13,8 +19,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 `
-
-/* Here Card.Content children is used as a render prop. */
 
 const ContributorList =({ orderArray, contributors, showLength, showMore })=>{
     let Cards = [];

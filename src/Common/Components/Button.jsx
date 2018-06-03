@@ -24,6 +24,9 @@ margin: 1em;
 padding: 0.25em 1em;
 `
 
+/*
+- supports `link` button when `link` prop is passed else reders a default `button` 
+*/
 
 const Button = ({ link, children, ...rest}) => {
     if(link){
@@ -33,7 +36,6 @@ const Button = ({ link, children, ...rest}) => {
             </Link>
         )
     }
-
     return (
         <StyledButton {...rest}> 
             {children}

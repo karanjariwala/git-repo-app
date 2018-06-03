@@ -13,11 +13,11 @@ flex-wrap: wrap;
 justify-content:center;
 `
 
-
 /*
-- Card is used here is a Compund Component. 
-- These Compound Component can further be modified to encapsulate state inside them.
-- Also children prop of Header, Footer or Body can be render prop to custom render if necessary.
+- CardList renders List of Cards of Repositories using `Card`
+- Compound Components like Card can further be modified to encapsulate some more state inside them. 
+- State like number of footer items is encapsulated in Card and is only shared From Card.Footer to it's children via props.
+- Also children prop of Card.Header, Card.Footer or Card.Body can be render prop to custom render if necessary.
 */
 
 const CardList = ({ orderArray, repositories, goToContributorsPage }) => (<Container>
