@@ -1,5 +1,4 @@
 import React from 'react';
-import Card from '../../Common/Components/Card/index';
 import Button from '../../Common/Components/Button';
 import styled from 'styled-components';
 
@@ -14,7 +13,7 @@ border-radius:50%;
 `
 
 const CustomCardRenderer = (props) => {
-    const { contributor, showMore }= props;
+    const { contributor }= props;
     const { avatar_url, login, contributions, html_url } = contributor;
 
     return <CustomCardWrapper>

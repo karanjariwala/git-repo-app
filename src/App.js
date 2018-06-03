@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import RepoSearchPage from './RepoSearchPage/Main';
 import ContributorsPage from './ContributorsPage/Main'
 const App = () => (

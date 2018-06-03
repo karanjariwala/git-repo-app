@@ -1,4 +1,4 @@
-import { takeEvery, all } from 'redux-saga/effects';
+import { all } from 'redux-saga/effects';
 import repositorySaga  from './RepoSearchPage/saga';
 import  contributorsSaga from './ContributorsPage/saga';
 

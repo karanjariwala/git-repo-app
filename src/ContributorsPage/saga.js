@@ -1,7 +1,6 @@
-import { call, put, takeEvery, takeLatest, select } from 'redux-saga/effects'
+import { call, put, takeLatest } from 'redux-saga/effects'
 import { ActionTypes, Actions } from './Actions'; 
 import { normalizedDataContributors } from '../Common/utils/normalize'
-import { push } from 'react-router-redux'
 import * as Api from './service';
 
 // worker Saga: will be fired on FETCH_REPOSITORIES actions

@@ -14,7 +14,7 @@ const repositorySearchPage = (state = initialState, action) => {
         return Object.assign({}, state, { loading: true });
       case ActionTypes.FETCH_REPOSITORIES_SUCCESS:
         return Object.assign({}, state, { repositoryData: action.data, loading: false  })
-      case ActionTypes.FETCH_REPOSITORIES_SUCCESS:
+      case ActionTypes.FETCH_REPOSITORIES_FAILURE:
         return Object.assign({}, state, {  loading: false  })
       default:
         return state;

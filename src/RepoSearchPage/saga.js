@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest, select } from 'redux-saga/effects'
+import { call, put, takeLatest, select } from 'redux-saga/effects'
 import * as Api from './service';
 import { ActionTypes, Actions } from './Actions'; 
 import { normalizedDataRepositories } from '../Common/utils/normalize'
