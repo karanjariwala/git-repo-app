@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const StyledFooter= styled.div`
 width:100%;
 align-self:flex-end;
-height:20%;
 box-shadow: 0 0 20px rgba(0,0,0,0.1), 0 0px 10px rgba(0,0,0,.3);
 `;
 const Footer= styled.div`

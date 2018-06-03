@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const StyledHeader= styled.div`
 width:100%;
 align-self:flex-start;
-height:20%;
 `;
 
 const Header= styled.div`
