@@ -1,18 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
 import {connect } from 'react-redux';
+import Card from '../../Common/Components/Card/index'
 
 const Container=styled.div`
 height: 80vh;
 width: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content:center;
 `
+const Link= styled.div`
+align-self: flex-end;
+`
+
+
+
 const CardList = ({ orderArray, repositories }) => (<Container>
-     {orderArray ? orderArray.map((id)=><div key={id}>{repositories[id].full_name}</div>) : ''}
+     {orderArray ? orderArray.map((id)=>{
+        const {name, html_url, language, description, stargazers_count, open_issues_count, contributors_url }=repositories[id]
+        return (<Card key={id} >
+                    <Card.Header>
+                            <div> <a href={html_url} target="_blank" > {name}</a></div>
+                            <div>{language}</div>  
+                    </Card.Header>
+                    <Card.Content>
+                            <div>{description}</div>
+                            <Link> <a> top Contributors</a> </Link>
+                    </Card.Content>
+                    <Card.Footer>
+                            <Card.Footer.Item>Stars: {stargazers_count} </Card.Footer.Item>
+                            <Card.Footer.Item>Issues: {open_issues_count}</Card.Footer.Item>
+
+                    </Card.Footer>
+                </Card>)
+        }) : '...search the repository name above and press go'}
      </Container>)
 
 
 const mapStateToProps = (state) => {
-  const {result, entities }= state.repository.repositoryData;
+  const { result, entities }= state.repository.repositoryData;
   return {
       orderArray: result,
       repositories: entities
