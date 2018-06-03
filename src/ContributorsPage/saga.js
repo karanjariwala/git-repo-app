@@ -8,10 +8,9 @@ function* fetchContributors(action) {
     const { accountName, repositoryName } = action;
     yield console.log(accountName, repositoryName)
    try {
-      const { data } = yield call(Api.getContributors , {} , `${accountName}/${repositoryName}`);
-      yield console.log(data)
-      const { entities, result } = normalizedDataContributors(data);
-      yield put(Actions.fetchContributorsSucess({ entities: entities.contributors , result }));
+      const { data } = yield call(Api.getContributors , {} , `${accountName}/${repositoryName}`); // api call
+      const { entities, result } = normalizedDataContributors(data); // normalizing array of Objects 
+      yield put(Actions.fetchContributorsSucess({ entities: entities.contributors , result })); // save action with data 
    } catch (error) {
       yield put(Actions.fetchContributorsFailure(error));
    }
