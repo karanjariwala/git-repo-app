@@ -13,6 +13,10 @@ flex-wrap: wrap;
 justify-content:center;
 `
 
+const StyledDiv= styled.div`
+width:100%;
+`
+
 /*
 - CardList renders List of Cards of Repositories using `Card`
 - Compound Components like Card can further be modified to encapsulate some more state inside them. 
@@ -29,7 +33,7 @@ const CardList = ({ orderArray, repositories, goToContributorsPage }) => (<Conta
                             <div>{language}</div>  
                     </Card.Header>
                     <Card.Content>
-                            <div style={{width:'100%'}}>{description}</div>
+                            <StyledDiv>{description}</StyledDiv>
                             <Button link onClick={goToContributorsPage(full_name)}> top Contributors </Button>
                     </Card.Content>
                     <Card.Footer>
