@@ -7,7 +7,7 @@ const App = () => (
   <div>
     <main>
       <Route exact path="/" component={RepoSearchPage} />
-      <Route exact path="/about-us" component={About} />
+      <Route exact path="/:accountName/:repositoryName/contributors" component={About} />
     </main>
   </div>
 )

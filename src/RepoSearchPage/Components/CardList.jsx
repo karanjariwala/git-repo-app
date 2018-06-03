@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import {connect } from 'react-redux';
 import Card from '../../Common/Components/Card/index'
+import {  push } from 'react-router-redux'
+
 
 const Container=styled.div`
 height: 80vh;
@@ -12,13 +14,15 @@ justify-content:center;
 `
 const Link= styled.div`
 align-self: flex-end;
+text-decoration:underline;
+cursor:pointer;
 `
 
 
 
-const CardList = ({ orderArray, repositories }) => (<Container>
+const CardList = ({ orderArray, repositories, goToContributorsPage }) => (<Container>
      {orderArray ? orderArray.map((id)=>{
-        const {name, html_url, language, description, stargazers_count, open_issues_count, contributors_url }=repositories[id]
+        const {name,full_name, html_url, language, description, stargazers_count, open_issues_count, contributors_url }=repositories[id]
         return (<Card key={id} >
                     <Card.Header>
                             <div> <a href={html_url} target="_blank" > {name}</a></div>
@@ -26,7 +30,7 @@ const CardList = ({ orderArray, repositories }) => (<Container>
                     </Card.Header>
                     <Card.Content>
                             <div>{description}</div>
-                            <Link> <a> top Contributors</a> </Link>
+                            <Link> <a onClick={goToContributorsPage(full_name)}> top Contributors</a> </Link>
                     </Card.Content>
                     <Card.Footer>
                             <Card.Footer.Item>Stars: {stargazers_count} </Card.Footer.Item>
@@ -46,4 +50,8 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps)(CardList);
+const mapDispatchToProps = dispatch => ({
+        goToContributorsPage : (fullName)=>e => dispatch(push(`${fullName}/contributors`))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(CardList);
