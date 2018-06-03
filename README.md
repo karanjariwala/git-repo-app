@@ -2,7 +2,7 @@
 github-repo-search-app
 
 - Hosted on github. Link below
-https://karanjariwala.github.io/github-repo-search-app/
+https://karanjariwala.github.io/git-repo-app/
 
 
 - To run locally 
