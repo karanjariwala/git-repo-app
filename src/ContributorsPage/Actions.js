@@ -17,7 +17,7 @@ export const ActionTypes = {
 export const Actions = {
     fetchContributors: (accountName, repositoryName) => ({ type:ActionTypes.FETCH_CONTRIBUTORS, accountName, repositoryName }),
     fetchContributorsSucess: (data) => ({ type: ActionTypes.FETCH_CONTRIBUTORS_SUCCESS, data }),
-    fetchContributorsFailure: (error) => ({ type: ActionTypes.FETCH_CONTRIBUTORS_FAILURE, error }),
+    fetchContributorsFailure: () => ({ type: ActionTypes.FETCH_CONTRIBUTORS_FAILURE }),
     showMore: () => ({ type:ActionTypes.SHOW_MORE })
 };
 

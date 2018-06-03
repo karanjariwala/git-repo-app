@@ -4,7 +4,6 @@ const initialState = {
     searchValue:'',
     loading:'false',
     repositoryData: {},
-    error: {},
   };
   
 const repositorySearchPage = (state = initialState, action) => {
@@ -16,7 +15,7 @@ const repositorySearchPage = (state = initialState, action) => {
       case ActionTypes.FETCH_REPOSITORIES_SUCCESS:
         return Object.assign({}, state, { repositoryData: action.data, loading: false  })
       case ActionTypes.FETCH_REPOSITORIES_SUCCESS:
-        return Object.assign({}, state, { error: action.error, loading: false  })
+        return Object.assign({}, state, {  loading: false  })
       default:
         return state;
       }
