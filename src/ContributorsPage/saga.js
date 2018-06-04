@@ -11,18 +11,22 @@ const INITIAL_LOAD_PAGE_SIZE = PAGE_SIZE * 2;
 function* fetchContributorsPage(action){
   const { accountName, repositoryName , firstLoad } = action;
   try {
+
     const contributorIds =  yield select(state => state.contributors.contributorsData.result);
     const page_num = parseInt(contributorIds.length / PAGE_SIZE, 10) + 1;  // calculating page number last fetched 
     const  params = firstLoad ? { page: 1, per_page: INITIAL_LOAD_PAGE_SIZE } : { page: page_num , per_page: PAGE_SIZE };
     const response = yield call(Api.getContributors , params , `${accountName}/${repositoryName}`); // api call
-    const { entities, result } = normalizedDataContributors(response.data); // normalizing array of Objects 
-    const isLastPage= findLastPage(response.headers,page_num) === page_num;
-    
-    yield put(Actions.fetchContributorsPageSucess({ entities: entities.contributors, result }, isLastPage )); // save action with data 
-    console.log(findLastPage(response.headers,page_num), page_num)
+
+    if(response.data){
+      const { entities, result } = normalizedDataContributors(response.data); // normalizing array of Objects 
+      const isLastPage= findLastPage(response.headers,page_num) === page_num;
+      yield put(Actions.fetchContributorsPageSucess({ entities: entities.contributors, result }, isLastPage )); // save action with data 
+    }
+    console.log(findLastPage(response.headers, page_num), response ,page_num)
   } catch (error) {
-   console.log(error);
-    yield put(Actions.fetchContributorsFailure(error));
+
+      console.log(error);
+      yield put(Actions.fetchContributorsFailure(error));
  }
 }
 
