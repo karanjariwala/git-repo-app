@@ -30,7 +30,7 @@ const contributorSearchPage = (state = initialState, action) => {
         return Object.assign({}, state, { 
           contributorsData: { 
             entities: Object.assign({}, state.contributorsData.entities, action.data.entities), 
-            result:[... new Set([...state.contributorsData.result, ...action.data.result])],  
+            result:[ ...new Set([...state.contributorsData.result, ...action.data.result])],  
             isLastPage: action.isLastPage 
               }, 
           loading: false  

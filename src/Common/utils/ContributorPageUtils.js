@@ -12,5 +12,5 @@ export const findLastPage = (headers, page_num) => {
       return page_num;
     }
     // here we find the index of integer after page= i.e. last page.
-    return parseInt(linkArray[0].slice(linkArray[0].indexOf('page=')+5))
+    return parseInt(linkArray[0].slice(linkArray[0].indexOf('page=')+5), 10)
   }
