@@ -28,14 +28,19 @@ class Loader extends React.Component {
   }
 
   render() {
-    const { frameArray, interval, ...rest }= this.props
+    const { frameArray, interval, as , children,  ...rest }= this.props
     let index = this.state.frame % this.props.frameArray.length;
-    return <h1 {...rest} >{this.props.frameArray[index]}</h1>;
+    return React.createElement( 
+        as,
+        rest,
+        [...[this.props.frameArray[index]]]
+    )
   }
 }
 Loader.defaultProps = {
   interval: 100,
-  frameArray: frameArray
+  frameArray: frameArray,
+  as:'h1',
 };
 
 export default Loader;
