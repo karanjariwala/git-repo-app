@@ -7,7 +7,7 @@ import { push } from 'react-router-redux'
 
 // worker Saga: will be fired on FETCH_REPOSITORIES actions
 function* fetchRepositories(action) {
-   try {
+   try {    
     const  q = yield select(state=> state.repository.searchValue)
     const params={
         q,
@@ -19,7 +19,9 @@ function* fetchRepositories(action) {
       const { entities, result } = normalizedDataRepositories(data.items.slice(0,6)); // triming and normalizing data
       yield put(Actions.fetchRepositoriesSucess({ entities: entities.repositories , result })); // action dispatch to save
    } catch (error) {
-      yield put(Actions.fetchRepositoriesFailure(error));
+      const { response } = error;
+      console.log(response);
+      yield put(Actions.fetchRepositoriesFailure(JSON.stringify(response)));
    }
 }
 

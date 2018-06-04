@@ -18,7 +18,7 @@ export const Actions = {
     onInputChange: (value) => ({type: ActionTypes.INPUT_CHANGE, value }),
     fetchRepositories: () => ({ type:ActionTypes.FETCH_REPOSITORIES }),
     fetchRepositoriesSucess: (data) => ({ type: ActionTypes.FETCH_REPOSITORIES_SUCCESS, data }),
-    fetchRepositoriesFailure: () => ({ type: ActionTypes.FETCH_REPOSITORIES_FAILURE }),
+    fetchRepositoriesFailure: ( errMsg ) => ({ type: ActionTypes.FETCH_REPOSITORIES_FAILURE, errMsg }),
     navigateToContributorsPage: (full_name) => ({ type: ActionTypes.NAVIGATE_TO_CONTRIBUTORS_PAGE, full_name})
 };
 
