@@ -24,8 +24,8 @@ width:100%;
 - Also children prop of Card.Header, Card.Footer or Card.Body can be render prop to custom render if necessary.
 */
 
-const CardList = ({ orderArray, repositories, goToContributorsPage }) => (<Container>
-     {orderArray ? orderArray.map((id)=>{
+const CardList = ({ repositoryIds, repositories, goToContributorsPage }) => (<Container>
+     {repositoryIds ? repositoryIds.map((id)=>{
         const {name,full_name, html_url, language, description, stargazers_count, open_issues_count }=repositories[id]
         return (<Card key={id} >
                     <Card.Header>
@@ -48,8 +48,8 @@ const CardList = ({ orderArray, repositories, goToContributorsPage }) => (<Conta
 const mapStateToProps = (state) => {
   const { result, entities }= state.repository.repositoryData;
   return {
-      orderArray: result,
-      repositories: entities
+        repositoryIds: result,
+        repositories: entities
   }
 }
 

@@ -20,10 +20,10 @@ justify-content: center;
 align-items: center;
 `
 
-const ContributorList =({ orderArray, contributors, showLength, showMore })=>{
+const ContributorList =({ contributorIds, contributors, showLength, showMore })=>{
     let Cards = [];
-    if(orderArray && orderArray.length){
-         Cards = orderArray.slice(0,showLength).map(id=>{
+    if(contributorIds && contributorIds.length){
+         Cards = contributorIds.slice(0,showLength).map(id=>{
                 return (<Card id={id} width={'400px'} margin={'10px'}>
                             <Card.Content contributor={contributors[id]}>
                                 {(props) => <CustomCardRenderer {...props} />}  
@@ -31,7 +31,7 @@ const ContributorList =({ orderArray, contributors, showLength, showMore })=>{
                         </Card>)
             })
 
-        if(orderArray.length>showLength){
+        if(contributorIds.length>showLength){
             Cards.push(<Button onClick={showMore}> show More </Button>)
         }
 
@@ -46,7 +46,7 @@ const ContributorList =({ orderArray, contributors, showLength, showMore })=>{
 const mapStateToProps = (state) => {
     const { result, entities , showLength }= state.contributors.contributorsData;
     return {
-        orderArray: result,
+        contributorIds: result,
         contributors: entities,
         showLength, 
     }
