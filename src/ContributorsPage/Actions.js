@@ -5,20 +5,18 @@
 
 
 export const ActionTypes = {
-    FETCH_CONTRIBUTORS:'CONTRIBUTOR_PAGE/FETCH_CONTRIBUTORS',
-    FETCH_CONTRIBUTORS_SUCCESS:'CONTRIBUTOR_PAGE/FETCH_CONTRIBUTORS_SUCCESS',
-    FETCH_CONTRIBUTORS_FAILURE:'CONTRIBUTOR_PAGE/FETCH_CONTRIBUTORS_FAILURE',
-    SHOW_MORE: 'CONTRIBUTOR_PAGE/SHOW_MORE',
+    FETCH_CONTRIBUTORS_PAGE: 'CONTRIBUTOR_PAGE/FETCH_CONTRIBUTORS_PAGE',
+    FETCH_CONTRIBUTORS_PAGE_SUCCESS:'CONTRIBUTOR_PAGE/FETCH_CONTRIBUTORS_PAGE_SUCCESS',
+    FETCH_CONTRIBUTORS_PAGE_FAILURE:'CONTRIBUTOR_PAGE/FETCH_CONTRIBUTORS_PAGE_FAILURE',
 };
 
 /*
 * Actions
 */
 export const Actions = {
-    fetchContributors: (accountName, repositoryName) => ({ type:ActionTypes.FETCH_CONTRIBUTORS, accountName, repositoryName }),
-    fetchContributorsSucess: (data) => ({ type: ActionTypes.FETCH_CONTRIBUTORS_SUCCESS, data }),
-    fetchContributorsFailure: () => ({ type: ActionTypes.FETCH_CONTRIBUTORS_FAILURE }),
-    showMore: () => ({ type:ActionTypes.SHOW_MORE })
+    fetchContributorsPage: (accountName, repositoryName, firstLoad) => ({ type:ActionTypes.FETCH_CONTRIBUTORS_PAGE, accountName, repositoryName , firstLoad}),
+    fetchContributorsPageSucess: (data, isLastPage) => ({ type: ActionTypes.FETCH_CONTRIBUTORS_PAGE_SUCCESS, data, isLastPage }),
+    fetchContributorsPageFailure: () => ({ type: ActionTypes.FETCH_CONTRIBUTORS_PAGE_FAILURE }),
 };
 
 

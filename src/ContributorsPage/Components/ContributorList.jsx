@@ -5,12 +5,12 @@ import Button from '../../Common/Components/Button';
 import styled from 'styled-components';
 import { Actions } from '../Actions';
 import CustomCardRenderer from './CustomCardRenderer';
-import { contributorIdsSelector, displayButtonSelector } from '../selector';
+import { contributorIdsSelector } from '../selector';
 import Loader from '../../Common/Components/Loader';
 
 /* 
     -ContributorList Renders Cards for Contributors
-    -Here `Card.Content` `children` is used as a `render prop`.
+    - Here `Card.Content` `children` is used as a `render prop`.
     -`Show More` button is added for pagination. On Click dispatches showMore action.
 */
 
@@ -21,7 +21,7 @@ justify-content: center;
 align-items: center;
 `
 
-const ContributorList =({ contributorIds, contributors, displayButton, showMore , loading})=>{
+const ContributorList =({ contributorIds, contributors, isLastPage, showMore , loading})=>{
         let Cards = contributorIds.map(id=>(
                         <Card key={id} width={'400px'} margin={'10px'}>
                             <Card.Content contributor={contributors[id]}>
@@ -29,23 +29,23 @@ const ContributorList =({ contributorIds, contributors, displayButton, showMore 
                             </Card.Content>
                         </Card>))
 
-        if(displayButton){
-            Cards.push(<Button key={'showMoreButton'} onClick={showMore}> show More </Button>)
+        if(!isLastPage){
+            Cards.push(<Button key={'showMoreButton'} onClick={showMore}> {loading?<Loader as ={'span'}/>: 'show More'} </Button>)
         }
 
-    return <Container>{loading? <Loader/> : [...Cards] }</Container>
+    return <Container>{[...Cards] }</Container>
 }
 
 
 const mapStateToProps = (state) => ({
     contributorIds: contributorIdsSelector(state),
     contributors: state.contributors.contributorsData.entities,
-    displayButton: displayButtonSelector(state), 
+    isLastPage: state.contributors.contributorsData.isLastPage, 
     loading: state.contributors.loading
 });
 
-const mapDispatchToProps = dispatch => ({
-    showMore: () => dispatch(Actions.showMore())
+const mapDispatchToProps = ( dispatch, { accountName, repositoryName } ) => ({
+    showMore: () => dispatch(Actions.fetchContributorsPage(accountName, repositoryName))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(ContributorList);

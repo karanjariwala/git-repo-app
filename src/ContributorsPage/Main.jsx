@@ -11,17 +11,21 @@ import ContributorsList from './Components/ContributorList';
 class ContributorsPage extends React.Component{
     componentDidMount(){
         const { match, fetchContributors} = this.props;
-        fetchContributors(match.params.accountName, match.params.repositoryName);
+        fetchContributors(match.params.accountName, match.params.repositoryName, true);
     }
 
     render(){
-        return  <ContributorsList /> 
+        const { match } = this.props;
+        return  <ContributorsList 
+                    accountName={match.params.accountName} 
+                    repositoryName={match.params.repositoryName}  
+                    /> 
     }
 }
 
 
 const mapDispatchToProps = dispatch => ({
-    fetchContributors: (accountName, repositoryName) => dispatch(Actions.fetchContributors(accountName, repositoryName))
+    fetchContributors: (accountName, repositoryName , firstLoad) => dispatch(Actions.fetchContributorsPage(accountName, repositoryName, firstLoad))
 })
 
 export default connect(null, mapDispatchToProps)(ContributorsPage);
