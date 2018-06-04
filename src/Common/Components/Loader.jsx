@@ -28,8 +28,9 @@ class Loader extends React.Component {
   }
 
   render() {
+    const { frameArray, interval, ...rest }= this.props
     let index = this.state.frame % this.props.frameArray.length;
-    return <h1 {...this.props}>{this.props.frameArray[index]}</h1>;
+    return <h1 {...rest} >{this.props.frameArray[index]}</h1>;
   }
 }
 Loader.defaultProps = {
