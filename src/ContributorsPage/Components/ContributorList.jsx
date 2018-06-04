@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { Actions } from '../Actions';
 import CustomCardRenderer from './CustomCardRenderer';
 import { contributorIdsSelector, displayButtonSelector } from '../selector';
+import Loader from '../../Common/Components/Loader';
 
 /* 
     -ContributorList Renders Cards for Contributors
@@ -20,7 +21,7 @@ justify-content: center;
 align-items: center;
 `
 
-const ContributorList =({ contributorIds, contributors, displayButton, showMore })=>{
+const ContributorList =({ contributorIds, contributors, displayButton, showMore , loading})=>{
         let Cards = contributorIds.map(id=>(
                         <Card key={id} width={'400px'} margin={'10px'}>
                             <Card.Content contributor={contributors[id]}>
@@ -28,15 +29,11 @@ const ContributorList =({ contributorIds, contributors, displayButton, showMore 
                             </Card.Content>
                         </Card>))
 
-        if( displayButton ){
+        if(displayButton){
             Cards.push(<Button key={'showMoreButton'} onClick={showMore}> show More </Button>)
         }
 
-        if(!Cards.length){
-            Cards= [<h1 key={'placeholder'}> ¯\_(ツ)_/¯ </h1>]    
-        }
-
-    return <Container>{[...Cards]}</Container>
+    return <Container>{loading? <Loader/> : [...Cards] }</Container>
 }
 
 
@@ -44,6 +41,7 @@ const mapStateToProps = (state) => ({
     contributorIds: contributorIdsSelector(state),
     contributors: state.contributors.contributorsData.entities,
     displayButton: displayButtonSelector(state), 
+    loading: state.contributors.loading
 });
 
 const mapDispatchToProps = dispatch => ({
