@@ -1,6 +1,8 @@
 import qs from 'qs';
 import axios from 'axios';
 
+
+
 /*
   - apiClient is wrpper over axios to handle common api stuff.
   - qs is just a utility to create a query string out of params.
@@ -17,6 +19,8 @@ function apiClient(
   cancelRequestToken = '',
   baseURL,
 ) {
+
+  const newParams = Object.assign({}, params, {access_token: "8895d96d557ebe15b90ee904209cde1d7a8e83c9"} );  // access token added since there are only 60 request avaialble / hour if not auth.
   return axios({
     url,
     baseURL: baseURL ? baseURL :'https://api.github.com/',  // Since this is github api client app api.github.com made default.
@@ -24,10 +28,10 @@ function apiClient(
     method: httpMethod,
     data,
     headers,
-    params,
+    params:newParams,
     cancelToken: cancelRequestToken,
-    paramsSerializer(param) {
-      return qs.stringify(param, { arrayFormat: 'repeat' });
+    paramsSerializer() {
+      return qs.stringify(newParams, { arrayFormat: 'repeat' });
     },
   }).catch(error => {
     if (axios.isCancel(error)) {
