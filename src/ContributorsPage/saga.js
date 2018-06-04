@@ -23,10 +23,11 @@ function* fetchContributorsPage(action){
       yield put(Actions.fetchContributorsPageSucess({ entities: entities.contributors, result }, isLastPage )); // save action with data 
     }
     console.log(findLastPage(response.headers, page_num), response ,page_num)
-  } catch (error) {
 
-      console.log(error);
-      yield put(Actions.fetchContributorsFailure(error));
+  } catch (error) {
+      const { response } = error;
+      console.log(response);
+      yield put(Actions.fetchContributorsPageFailure(JSON.stringify(response)));
  }
 }
 

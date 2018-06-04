@@ -16,7 +16,7 @@ export const ActionTypes = {
 export const Actions = {
     fetchContributorsPage: (accountName, repositoryName, firstLoad) => ({ type:ActionTypes.FETCH_CONTRIBUTORS_PAGE, accountName, repositoryName , firstLoad}),
     fetchContributorsPageSucess: (data, isLastPage) => ({ type: ActionTypes.FETCH_CONTRIBUTORS_PAGE_SUCCESS, data, isLastPage }),
-    fetchContributorsPageFailure: () => ({ type: ActionTypes.FETCH_CONTRIBUTORS_PAGE_FAILURE }),
+    fetchContributorsPageFailure: (errorMsg) => ({ type: ActionTypes.FETCH_CONTRIBUTORS_PAGE_FAILURE , errorMsg}),
 };
 
 

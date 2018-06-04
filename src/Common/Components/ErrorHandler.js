@@ -7,7 +7,7 @@ font-size: 2em;
 padding: 40px;
 `
 
-// This is just a basic error handler. 
+// This is just a very basic error handler. 
 
 const  ErrorHandler = ({ error = false , children }) => {
     if(error){

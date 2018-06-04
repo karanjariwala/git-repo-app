@@ -15,6 +15,7 @@ const initialState = {
     loading:false,
     isLastPage:false,
     contributorsData: Object.assign({}, emptyContributorsData),
+    errorMsg:'',
   };
   
 const contributorSearchPage = (state = initialState, action) => {
@@ -37,7 +38,7 @@ const contributorSearchPage = (state = initialState, action) => {
               }
             )
       case ActionTypes.FETCH_CONTRIBUTORS_PAGE_FAILURE:
-        return Object.assign({}, state, { loading: false  })
+        return Object.assign({}, state, { loading: false, isLastPage:true, errorMsg: action.errorMsg })
       case ActionTypes.SHOW_MORE:
         return Object.assign({}, state, {contributorsData: { ...state.contributorsData, showLength: state.contributorsData.showLength + 5 }})
       default:
