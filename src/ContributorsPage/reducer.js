@@ -1,7 +1,7 @@
 import { ActionTypes } from './Actions'
 
 const initialState = {
-    loading:'false',
+    loading:false,
     contributorsData: {},
   };
   

@@ -2,7 +2,7 @@ import { ActionTypes } from './Actions'
 
 const initialState = {
     searchValue:'',
-    loading:'false',
+    loading:false,
     repositoryData: {},
   };
   
