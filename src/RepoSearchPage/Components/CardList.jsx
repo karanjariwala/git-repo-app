@@ -26,7 +26,7 @@ width:100%;
 
 const CardList = ({ repositoryIds, repositories, goToContributorsPage }) => (<Container>
      {repositoryIds ? repositoryIds.map((id)=>{
-        const {name,full_name, html_url, language, description, stargazers_count, open_issues_count }=repositories[id]
+        const { name, full_name, html_url, language, description, stargazers_count, open_issues_count } = repositories[id];
         return (<Card key={id} >
                     <Card.Header>
                             <div> <a href={html_url} target="_blank" > {name}</a></div>
@@ -39,6 +39,7 @@ const CardList = ({ repositoryIds, repositories, goToContributorsPage }) => (<Co
                     <Card.Footer>
                             <Card.Footer.Item>Stars: {stargazers_count} </Card.Footer.Item>
                             <Card.Footer.Item>Issues: {open_issues_count}</Card.Footer.Item>
+
                     </Card.Footer>
                 </Card>)
         }) : '...search the repository name above and press go'}
