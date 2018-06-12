@@ -19,8 +19,6 @@ function apiClient(
   cancelRequestToken = '',
   baseURL,
 ) {
-  // access token added since there are only 60 request avaialble / hour if not auth. idealy should not be in code 
-  const newParams = Object.assign({}, params, {access_token: "8895d96d557ebe15b90ee904209cde1d7a8e83c9"} );  
   return axios({
     url,
     baseURL: baseURL ? baseURL :'https://api.github.com/',  // Since this is github api client app api.github.com made default.
@@ -31,7 +29,7 @@ function apiClient(
     params:newParams,
     cancelToken: cancelRequestToken,
     paramsSerializer() {
-      return qs.stringify(newParams, { arrayFormat: 'repeat' });
+      return qs.stringify(params, { arrayFormat: 'repeat' });
     },
   }).catch(error => {
     if (axios.isCancel(error)) {
