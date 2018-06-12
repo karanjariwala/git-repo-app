@@ -26,7 +26,7 @@ function apiClient(
     method: httpMethod,
     data,
     headers,
-    params:newParams,
+    params,
     cancelToken: cancelRequestToken,
     paramsSerializer() {
       return qs.stringify(params, { arrayFormat: 'repeat' });
