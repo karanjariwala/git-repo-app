@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://karanjariwala.github.io/git-repo-app",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "gh-pages": "^1.2.0",
     "history": "^4.7.2",
     "normalizr": "^3.2.4",
